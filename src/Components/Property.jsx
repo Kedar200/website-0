@@ -1,14 +1,13 @@
-import { style } from "./Home/Home";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import useScript from "./useScript";
+import useStyle from "./useStyle";
 
 export const Property = () => {
   // // for importing js
-  const script = document.createElement("script");
-  script.src = "/Search-filter.js";
-  document.body.appendChild(script);
+  useScript("/Search-filter.js");
   // for importing style
-  style.href = "/Property-style.css";
+  useStyle("/Properrty-style.css");
   const navigate = useNavigate();
   return (
     <div>

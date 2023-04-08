@@ -2,35 +2,38 @@ import { useState } from "react";
 import { Home1 } from "./Home1";
 import { Home2 } from "./Home2";
 import { Home3 } from "./Home3";
-
-export const style = document.createElement("link");
-export const script = document.createElement("script");
-
-style.rel = "stylesheet";
+import { Routes, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
+import useScript from "../useScript";
+import useStyle from "../useStyle";
 
 export const Home = () => {
-  // // for importing js
-  script.src = "/Navbar.js";
-  document.body.appendChild(script);
-  // for importing style
-  style.href = "/style.css";
-
-  document.head.appendChild(style);
-
+  useScript("/Navbar.js");
+  useStyle("/style.css");
   return (
     <>
       <div className="box">
-        <div className="menu" id="setting">
-          <img className="icons" draggable="false" src="img1.svg" alt="" />{" "}
-        </div>{" "}
-        <div className="menu" id="image2">
-          <img className="icons" draggable="false" src="img2.svg" alt="" />{" "}
-        </div>{" "}
-        <div className="menu" id="image3">
-          <img className="icons" draggable="false" src="img3.svg" alt="" />{" "}
-        </div>{" "}
+        <Link to="/">
+          <div className="menu" id="setting">
+            <img className="icons" draggable="false" src="img1.svg" alt="" />{" "}
+          </div>{" "}
+        </Link>{" "}
+        <Link to="/buy">
+          <div className="menu" id="image2">
+            <img className="icons" draggable="false" src="img2.svg" alt="" />{" "}
+          </div>{" "}
+        </Link>{" "}
+        <Link to="/rent">
+          <div className="menu" id="image3" to="/rent">
+            <img className="icons" draggable="false" src="img3.svg" alt="" />{" "}
+          </div>{" "}
+        </Link>{" "}
       </div>{" "}
-      <Home3 />{" "}
+      <Routes>
+        <Route path="/" element={<Home1 />} />{" "}
+        <Route path="buy" element={<Home2 />} />{" "}
+        <Route path="rent" element={<Home3 />} />{" "}
+      </Routes>{" "}
     </>
   );
 };
