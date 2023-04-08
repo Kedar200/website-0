@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
+import useScript from "../useScript";
+import { useState } from "react";
 
 export const Home3 = () => {
-  const script = document.createElement("script");
-  script.src = "/Search-filter.js";
-  document.body.appendChild(script);
-
+  useScript("/Search-filter.js");
+  // console.log(document.querySelector("#myInput").value);
+  const [Search, SetSesrch] = useState();
   return (
     <div>
       <div class="split right">
@@ -18,7 +19,15 @@ export const Home3 = () => {
                 placeholder="Search..."
                 required
               />
-              <Link to="/Property">
+              <Link
+                to="/Property"
+                onClick={() => {
+                  localStorage.setItem(
+                    "Search",
+                    document.querySelector("#myInput").value
+                  );
+                }}
+              >
                 <button type="submit">Submit</button>
               </Link>{" "}
             </div>

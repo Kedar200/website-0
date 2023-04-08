@@ -7,7 +7,7 @@ export const Property = () => {
   // // for importing js
   useScript("/Search-filter.js");
   // for importing style
-  useStyle("/Properrty-style.css");
+  useStyle("/Property-style.css");
   const navigate = useNavigate();
   return (
     <div>
@@ -21,6 +21,7 @@ export const Property = () => {
                 type="text"
                 name="city"
                 placeholder="Search..."
+                value={localStorage.getItem("Search")}
                 required
               />
               <button type="submit">

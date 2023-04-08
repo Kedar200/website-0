@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Home1 } from "./Home1";
 import { Home2 } from "./Home2";
 import { Home3 } from "./Home3";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 import useScript from "../useScript";
 import useStyle from "../useStyle";
@@ -29,11 +29,6 @@ export const Home = () => {
           </div>{" "}
         </Link>{" "}
       </div>{" "}
-      <Routes>
-        <Route path="/" element={<Home1 />} />{" "}
-        <Route path="buy" element={<Home2 />} />{" "}
-        <Route path="rent" element={<Home3 />} />{" "}
-      </Routes>{" "}
     </>
   );
 };
