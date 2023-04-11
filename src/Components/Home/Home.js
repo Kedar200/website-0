@@ -1,18 +1,14 @@
-import { useState } from "react";
-import { Home1 } from "./Home1";
-import { Home2 } from "./Home2";
-import { Home3 } from "./Home3";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 import useScript from "../useScript";
 import useStyle from "../useStyle";
+import { motion } from "framer-motion";
 
 export const Home = () => {
   useScript("/Navbar.js");
   useStyle("/style.css");
   return (
     <>
-      <div className="box">
+      <motion.div className="box">
         <Link to="/">
           <div className="menu" id="setting">
             <img className="icons" draggable="false" src="img1.svg" alt="" />{" "}
@@ -28,7 +24,7 @@ export const Home = () => {
             <img className="icons" draggable="false" src="img3.svg" alt="" />{" "}
           </div>{" "}
         </Link>{" "}
-      </div>{" "}
+      </motion.div>{" "}
     </>
   );
 };

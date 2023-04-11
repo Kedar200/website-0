@@ -1,16 +1,28 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useScript from "../useScript";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const Home3 = () => {
   useScript("/Search-filter.js");
-  // console.log(document.querySelector("#myInput").value);
-  const [Search, SetSesrch] = useState();
+  const navigate = useNavigate();
+  const [city, setcity] = useState(null);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setcity("pune");
+    navigate("/Property");
+  };
+  console.log(city);
   return (
     <div>
       <div class="split right">
         <div className="form">
-          <form autocomplete="off">
+          <form
+            action="/Property"
+            autocomplete="off"
+            method="get"
+            onSubmit={handleSubmit}
+          >
             <div className="autocomplete">
               <input
                 id="myInput"
@@ -19,17 +31,7 @@ export const Home3 = () => {
                 placeholder="Search..."
                 required
               />
-              <Link
-                to="/Property"
-                onClick={() => {
-                  localStorage.setItem(
-                    "Search",
-                    document.querySelector("#myInput").value
-                  );
-                }}
-              >
-                <button type="submit">Submit</button>
-              </Link>{" "}
+              <button type="submit">Submit</button>
             </div>
           </form>
         </div>

@@ -33,7 +33,6 @@ a {
     font-weight: bold;
     text-align: center;
     color: #CC5DE8;
-    text-shadow: 2px 1px #CC5DE8;
 }
 
 #add_button {
@@ -356,4 +355,15 @@ img {
 .autocomplete-active {
     /*when navigating through the items using the arrow keys:*/
     color: black;
+}
+
+.add_button {
+    font-family: martel;
+    font-size: 5vh;
+    font-weight: bold;
+}
+
+.exit_button {
+    font-size: 5vh;
+    font-family: martel;
 }

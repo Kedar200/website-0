@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import useScript from "./useScript";
-import useStyle from "./useStyle";
+import useScript from "../useScript";
+import useStyle from "../useStyle";
 
 export const Property = () => {
   // // for importing js
   useScript("/Search-filter.js");
   // for importing style
   useStyle("/Property-style.css");
+  // document.querySelector("#myInput").value = localStorage.getItem("Search");
   const navigate = useNavigate();
   return (
     <div>
@@ -21,7 +22,6 @@ export const Property = () => {
                 type="text"
                 name="city"
                 placeholder="Search..."
-                value={localStorage.getItem("Search")}
                 required
               />
               <button type="submit">
@@ -34,8 +34,9 @@ export const Property = () => {
           <img src="icons8-enter-80.png" alt="Exit" id="exit_button" /> Back
         </p>
 
-        <p class="add_button">
-          <img src="addProp.png" alt="Exit" id="add_button" /> Add Property
+        <p class="add_button" onClick={() => navigate("/Add_a_property")}>
+          <img src="addProp.png" alt="Exit" id="add_button" /> List Your
+          Property
         </p>
       </div>
       <div class="prop">
@@ -68,7 +69,9 @@ export const Property = () => {
 
       <div>
         <div class="rentBtn">
-          <button id="rent_button">Rent</button>
+          <Link to="/Rent_Info">
+            <button id="rent_button">Rent</button>
+          </Link>
         </div>
       </div>
     </div>
