@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import useScript from "../useScript";
 import useStyle from "../useStyle";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 export const Property = () => {
   // // for importing js
@@ -10,6 +12,26 @@ export const Property = () => {
   useStyle("/Property-style.css");
   // document.querySelector("#myInput").value = localStorage.getItem("Search");
   const navigate = useNavigate();
+
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+  const queryParameters = new URLSearchParams(window.location.search);
+
+  console.log(queryParameters.get("city"));
+  const fetchProducts = () => {
+    const url = "http://kedar/getData?city=" + queryParameters.get("city");
+    axios
+      .get(url)
+      .then((res) => {
+        console.log(res);
+        setProducts(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div>
       <div class="curve">
@@ -74,6 +96,18 @@ export const Property = () => {
           </Link>
         </div>
       </div>
+      {products.map((product) => (
+        <div class="additionalProp">
+          <img
+            src={"http://Kedar/Images/" + product.image}
+            alt="Property-image"
+          />
+          <div class="propInfo">
+            <p id="propName2">{product.name}</p>
+            <p id="OwnedBy2">{product.phone_number}</p>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

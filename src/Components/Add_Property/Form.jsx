@@ -17,47 +17,79 @@ export const Property_form = () => {
     <div className="formBody">
       <div class="cover1"></div>
       <div class="form">
-        <form action="http://127.0.0.1/postData" method="POST">
+        <form
+          action="http://kedar/postData"
+          method="POST"
+          encType="multipart/form-data"
+        >
           <h1 class="title-prop">
             ENTER PROPERTY <br /> DETAILS
           </h1>
           <input
             type="text"
+            class="text_input"
             id="ownerName"
             name="name"
             placeholder="Owner's Name"
           />
+
           <input
             type="text"
+            class="text_input"
             id="contact"
             name="phone_number"
             placeholder="Contact No."
           />
-          <input type="text" id="area" name="area" placeholder="Area in Sqm" />
-          <label for="Address" id="add">
+          <label for="Address" class="text_input" id="add">
             Address
           </label>
           <input
             type="text"
+            class="text_input"
             id="Street_name"
             name="street_name"
             placeholder="Street Name"
           />
-          <input type="text" id="City" name="city" placeholder="City" />
-          <input type="text" id="State" name="state" placeholder="State" />
           <input
             type="text"
+            class="text_input"
+            id="City"
+            name="city"
+            placeholder="City"
+          />
+          <input
+            type="text"
+            class="text_input"
+            id="State"
+            name="state"
+            placeholder="State"
+          />
+          <input
+            type="text"
+            class="text_input"
+            id="area"
+            name="area"
+            placeholder="Area in Sqm"
+          />
+          <input
+            type="text"
+            class="text_input"
             id="Furnished"
             name="furnished_status"
             placeholder="Furnished Status"
           />
-          <input type="text" id="Rent" name="rent" placeholder="Rent" />
-          <input type="file" name="images" id="image_uploaded" />
-          <div class="block">
-            Success state animation
-            <br />
-            <button class="button success">Submit</button>
-          </div>
+          <input
+            type="text"
+            class="text_input"
+            id="Rent"
+            name="rent"
+            placeholder="Rent"
+          />
+
+          <input type="file" id="File" name="images" />
+          <button type="submit" id="btn1">
+            Submit
+          </button>
         </form>
       </div>
     </div>

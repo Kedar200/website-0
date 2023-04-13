@@ -4,25 +4,12 @@ import { useState, useEffect } from "react";
 
 export const Home3 = () => {
   useScript("/Search-filter.js");
-  const navigate = useNavigate();
-  const [city, setcity] = useState(null);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setcity("pune");
-    navigate("/Property");
-  };
-  console.log(city);
   return (
     <div>
       <div class="split right">
         <div className="form">
-          <form
-            action="/Property"
-            autocomplete="off"
-            method="get"
-            onSubmit={handleSubmit}
-          >
+          <form action="/Property" autocomplete="off" method="get">
             <div className="autocomplete">
               <input
                 id="myInput"

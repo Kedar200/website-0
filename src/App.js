@@ -43,7 +43,7 @@ function App() {
           }
         />{" "}
         <Route path="/Property" element={<Property />} />{" "}
-        <Route path="about" element={<About />} />{" "}
+        <Route path="/about" element={<About />} />{" "}
         <Route path="/Rent_info" element={<Rent_info />} />{" "}
         <Route path="/Add_a_Property" element={<Property_form />} />{" "}
         <Route path="*" element={<Nomatch />} />{" "}
