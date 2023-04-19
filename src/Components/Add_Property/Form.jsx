@@ -2,19 +2,22 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import useScript from "../useScript";
 import useStyle from "../useStyle";
-
+import { motion } from "framer-motion";
 export const Property_form = () => {
   const navigate = useNavigate();
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-
-  //   // 👇️ redirect to /contacts
-  //   navigate("/Rent");
-  // };
   useStyle("Form.css");
   return (
-    <div className="formBody">
+    <motion.div
+      class="formBody"
+      animate={{ x: [2000, 0], opacity: 1 }}
+      transition={{
+        duration: 0.4,
+        delay: 0,
+        ease: [0, 0, 0, 1],
+      }}
+      initial={{ x: [0, 0], opacity: 0.5 }}
+    >
       <div class="cover1"></div>
       <div class="form">
         <form
@@ -86,12 +89,12 @@ export const Property_form = () => {
             placeholder="Rent"
           />
 
-          <input type="file" id="File" name="images" />
+          <input type="file" id="File" name="images" multiple />
           <button type="submit" id="btn1">
             Submit
           </button>
         </form>
       </div>
-    </div>
+    </motion.div>
   );
 };

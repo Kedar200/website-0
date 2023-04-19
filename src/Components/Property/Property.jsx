@@ -4,6 +4,7 @@ import useScript from "../useScript";
 import useStyle from "../useStyle";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { easeIn, motion } from "framer-motion";
 
 export const Property = () => {
   // // for importing js
@@ -25,7 +26,6 @@ export const Property = () => {
     axios
       .get(url)
       .then((res) => {
-        console.log(res);
         setProducts(res.data);
       })
       .catch((err) => {
@@ -35,7 +35,36 @@ export const Property = () => {
   return (
     <div>
       <div class="curve">
-        <img src="/curve.svg" alt="background" draggable="false" />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1279 351"
+          fill="none"
+        >
+          <motion.path
+            d="M1280 249.856C815.274 184.963 233.031 290.247 0 351V0H1280V249.856Z"
+            fill="url(#paint0_linear_444_318)"
+            stroke="#D09CFA"
+            stroke-width="2px"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 0.5 }}
+            transition={{
+              duration: 1,
+            }}
+          />
+          <defs>
+            <linearGradient
+              id="paint0_linear_444_318"
+              x1="400"
+              y1="-93.5"
+              x2="819.5"
+              y2="590.5"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stop-color="#D09CFA" />
+              <stop offset="1" stop-color="#D09CFA" stop-opacity="0" />
+            </linearGradient>
+          </defs>
+        </svg>
         <div className="form">
           <form autocomplete="off" action="/Property">
             <div className="autocomplete">
@@ -55,59 +84,44 @@ export const Property = () => {
         <p class="exit_button" onClick={() => navigate(-1)}>
           <img src="icons8-enter-80.png" alt="Exit" id="exit_button" /> Back
         </p>
-
         <p class="add_button" onClick={() => navigate("/Add_a_property")}>
-          <img src="addProp.png" alt="Exit" id="add_button" /> List Your
-          Property
+          <img src="add.svg" alt="Exit" id="add_button" /> List Your Property
         </p>
       </div>
-      <div class="prop">
-        <div>
-          <p id="propName">Property Name</p>
-          <p id="OwnedBy">Owned by</p>
-          <p id="Desc">Desc </p>
-        </div>
 
-        <div class="container">
-          <div>
-            <button class="btn">
-              <span class="btn__inner">
-                <span class="btn__slide"></span>
-                <span class="btn__content">
-                  <img src="left.png" alt="left Click" />
-                  <img
-                    src="interior.png"
-                    draggable="false"
-                    id="image"
-                    alt="Property photo"
-                  />
-                  <img src="right.png" alt="right click" />
-                </span>
-              </span>
-            </button>
+      <div class="container">
+        {products.map((product) => (
+          <div class="additionalProp item">
+            <motion.img
+              whileHover={{ scale: 1.05 }}
+              transition={{
+                duration: 0.4,
+                delay: 0,
+                ease: [0, 0, 0, 1],
+              }}
+              draggable={false}
+              src={
+                "http://Kedar/Images/" + product.name + "/" + product.image[1]
+              }
+              alt="Property-image"
+            />
+            <div class="propInfo">
+              <h1 id="propName2">{product.name}</h1>
+              <p id="OwnedBy2">
+                {product.street_name}, {product.city}
+              </p>
+              <p id="OwnedBy2">{product.state}.</p>
+              <div>
+                <div class="rentBtn">
+                  <Link to={"/Rent_Info?id=" + product._id}>
+                    <button id="rent_button">Show More</button>
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+        ))}
       </div>
-
-      <div>
-        <div class="rentBtn">
-          <Link to="/Rent_Info">
-            <button id="rent_button">Rent</button>
-          </Link>
-        </div>
-      </div>
-      {products.map((product) => (
-        <div class="additionalProp">
-          <img
-            src={"http://Kedar/Images/" + product.image}
-            alt="Property-image"
-          />
-          <div class="propInfo">
-            <p id="propName2">{product.name}</p>
-            <p id="OwnedBy2">{product.phone_number}</p>
-          </div>
-        </div>
-      ))}
     </div>
   );
 };

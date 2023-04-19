@@ -1,16 +1,48 @@
 .background {
     display: flex;
+    width: 100%;
+    height: 650px;
+    position: relative;
+    justify-content: center;
+}
+
+body {
+    overflow: hidden;
+}
+
+.btn2 {
+    z-index: 1;
+    background: none;
+    padding: 20px;
+    display: block;
+    border: none;
+    cursor: pointer;
+    margin: 0;
     position: absolute;
+    align-self: center;
+}
+
+#btnLeft {
+    left: 0;
+}
+
+#btnRight {
+    right: 0;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: 1s ease;
+    display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    bottom: 2vh;
-    min-height: 100vh;
-    background: url("/background.jpg") no-repeat;
-    background-size: 100% 100%;
+    background: #f3ccff;
 }
 
 .cover {
+    z-index: 1;
     opacity: 0%;
     background-color: #0a0a00;
     display: flex;
@@ -18,13 +50,17 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    min-height: 100vh;
+    height: 650px;
     transition: 0.6s;
     transition-timing-function: ease-in-out;
 }
 
 .cover:hover {
     opacity: 41%;
+}
+
+.cover:hover~.rent {
+    box-shadow: 12px 17px 21px rgb(129, 26, 129);
 }
 
 * {
@@ -46,11 +82,10 @@
     left: 3vw;
     z-index: 2;
     font-size: 3vw;
-    font-weight: bold;
     font-family: martel;
+    font-weight: bold;
     text-align: center;
     color: #CC5DE8;
-    text-shadow: 2px 1px #CC5DE8;
 }
 
 @media screen and (max-width: 700px) {
@@ -85,10 +120,12 @@
     font-family: 'Martel', serif;
     line-height: 2.7;
     background: transparent;
-    border: 2px solid #ffff;
+    border: solid;
     border-radius: 20px;
+    border-image: radial-gradient( purple 50%, white) 1;
     backdrop-filter: blur(10px);
     align-items: center;
+    z-index: 2;
     display: flex;
     flex-direction: row;
 }
@@ -107,7 +144,6 @@
     flex-direction: column;
     width: 50%;
     height: 100%;
-    /* padding: px; */
 }
 
 #c2 {
@@ -138,12 +174,7 @@ ul {
     border-radius: 4px;
     background: #0a0a0a;
     padding: 20px;
-    box-shadow: 12px 17px 21px rgb(129, 26, 129);
-    color: #FFFFD0;
+    color: #ffff;
     border-color: #0a0a00;
+    transition: 0.2s;
 }
-
-
-/* .rent:hover{
-    box-shadow: 7px 7px 5px rgb(101, 21, 101) ;
-}   */

@@ -8,8 +8,7 @@ import { Home2 } from "./Components/Home/Home2";
 import { Home3 } from "./Components/Home/Home3";
 import { Rent_info } from "./Components/Rent_Info/Rent_info";
 import { Property_form } from "./Components/Add_Property/Form";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
-import SwitchTransition from "react-transition-group";
+import { motion } from "framer-motion";
 
 function App() {
   return (

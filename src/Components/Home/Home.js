@@ -8,7 +8,7 @@ export const Home = () => {
   useStyle("/style.css");
   return (
     <>
-      <motion.div className="box">
+      <div className="box">
         <Link to="/">
           <div className="menu" id="setting">
             <img className="icons" draggable="false" src="img1.svg" alt="" />{" "}
@@ -24,7 +24,7 @@ export const Home = () => {
             <img className="icons" draggable="false" src="img3.svg" alt="" />{" "}
           </div>{" "}
         </Link>{" "}
-      </motion.div>{" "}
+      </div>{" "}
     </>
   );
 };

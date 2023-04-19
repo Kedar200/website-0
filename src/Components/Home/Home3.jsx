@@ -1,15 +1,25 @@
 import { Link, useNavigate } from "react-router-dom";
 import useScript from "../useScript";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 export const Home3 = () => {
   useScript("/Search-filter.js");
-
+  const navigate = useNavigate();
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    navigate("/Property?city=" + document.querySelector("#myInput").value);
+  };
   return (
     <div>
       <div class="split right">
         <div className="form">
-          <form action="/Property" autocomplete="off" method="get">
+          <form
+            action="/Property"
+            autocomplete="off"
+            method="get"
+            onSubmit={handleSubmit}
+          >
             <div className="autocomplete">
               <input
                 id="myInput"

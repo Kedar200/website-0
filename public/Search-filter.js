@@ -1,6 +1,6 @@
 function autocomplete(inp, arr) {
   /*the autocomplete function takes two arguments,
-                                                                                                                                          the text field element and an array of possible autocompleted values:*/
+                                                                                                                                            the text field element and an array of possible autocompleted values:*/
   var currentFocus;
   /*execute a function when someone writes in the text field:*/
   inp.addEventListener("input", function (e) {
@@ -36,7 +36,7 @@ function autocomplete(inp, arr) {
           /*insert the value for the autocomplete text field:*/
           inp.value = this.getElementsByTagName("input")[0].value;
           /*close the list of autocompleted values,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  (or any other open lists of autocompleted values:*/
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            (or any other open lists of autocompleted values:*/
           closeAllLists();
         });
         a.appendChild(b);
@@ -49,24 +49,17 @@ function autocomplete(inp, arr) {
     if (x) x = x.getElementsByTagName("div");
     if (e.keyCode == 40) {
       /*If the arrow DOWN key is pressed,
-                                                                                                                                                                                                                                                                                                                                                                                                                              increase the currentFocus variable:*/
+                                                                                                                                                                                                                                                                                                                                                                                                                                    increase the currentFocus variable:*/
       currentFocus++;
       /*and and make the current item more visible:*/
       addActive(x);
     } else if (e.keyCode == 38) {
       //up
       /*If the arrow UP key is pressed,
-                                                                                                                                                                                                                                                                                                                                                                                                                              decrease the currentFocus variable:*/
+                                                                                                                                                                                                                                                                                                                                                                                                                                    decrease the currentFocus variable:*/
       currentFocus--;
       /*and and make the current item more visible:*/
       addActive(x);
-    } else if (e.keyCode == 13) {
-      /*If the ENTER key is pressed, prevent the form from being submitted,*/
-      e.preventDefault();
-      if (currentFocus > -1) {
-        /*and simulate a click on the "active" item:*/
-        if (x) x[currentFocus].click();
-      }
     }
   });
 
@@ -90,7 +83,7 @@ function autocomplete(inp, arr) {
 
   function closeAllLists(elmnt) {
     /*close all autocomplete lists in the document,
-                                                                                                                                                                                                                                                                                    except the one passed as an argument:*/
+                                                                                                                                                                                                                                                                                        except the one passed as an argument:*/
     var x = document.getElementsByClassName("autocomplete-items");
     for (var i = 0; i < x.length; i++) {
       if (elmnt != x[i] && elmnt != inp) {
