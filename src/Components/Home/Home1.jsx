@@ -1,8 +1,4 @@
 export const Home1 = () => {
-  const script = document.createElement("script");
-  script.src = "/Search-filter.js";
-  document.body.appendChild(script);
-
   return (
     <div>
       <div class="split right">

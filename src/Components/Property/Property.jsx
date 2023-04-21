@@ -75,7 +75,7 @@ export const Property = () => {
                 placeholder="Search..."
                 required
               />
-              <button type="submit">
+              <button id="submit" type="submit">
                 <img src="/search-img.svg" alt="search" />
               </button>
             </div>

@@ -10,6 +10,7 @@ export const Home3 = () => {
     event.preventDefault();
     navigate("/Property?city=" + document.querySelector("#myInput").value);
   };
+
   return (
     <div>
       <div class="split right">
@@ -28,7 +29,9 @@ export const Home3 = () => {
                 placeholder="Search..."
                 required
               />
-              <button type="submit">Submit</button>
+              <button id="submit" type="submit">
+                <img src="/search-img.svg" alt="search" />
+              </button>
             </div>
           </form>
         </div>
