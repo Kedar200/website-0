@@ -11,7 +11,6 @@ export const Property = () => {
   useScript("/Search-filter.js");
   // for importing style
   useStyle("/Property-style.css");
-  // document.querySelector("#myInput").value = localStorage.getItem("Search");
   const navigate = useNavigate();
 
   const [products, setProducts] = useState([]);
@@ -20,7 +19,6 @@ export const Property = () => {
   }, []);
   const queryParameters = new URLSearchParams(window.location.search);
 
-  console.log(queryParameters.get("city"));
   const fetchProducts = () => {
     const url = "http://kedar/getData?city=" + queryParameters.get("city");
     axios
@@ -32,6 +30,7 @@ export const Property = () => {
         console.log(err);
       });
   };
+
   return (
     <div>
       <div class="curve">
